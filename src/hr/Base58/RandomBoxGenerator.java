@@ -12,7 +12,7 @@ public class RandomBoxGenerator {
 
         for(int i=0; i<boxNumber; i++){
 
-            boxes.add(new Box( "box " + i,0,0, randomGenerator.nextDouble(maxWidth) ,randomGenerator.nextDouble(maxDepth),
+            boxes.add(new Box( "box " + i,0,0, randomGenerator.nextDouble(maxWidth), randomGenerator.nextDouble(maxDepth),
                     randomGenerator.nextDouble(maxHeight)) );
 
         }
