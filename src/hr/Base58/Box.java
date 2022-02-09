@@ -4,16 +4,16 @@ public class Box {
 
     private final double depth;
     private final double width;
-    private double height;
+    private final double height;
 
     //defines the origin coordinates of a box
-    private double originX;
-    private double originZ;
+    private final double originX;
+    private final double originZ;
 
     //denotes the root box of the box tree
     private boolean isRoot = false;
 
-    private String id;
+    private final String id;
 
     //by default the box is a "freeSpaceBox" which denotes a free space that can be occupied by a non-freeSpaceBox
     private boolean freeSpaceBox = true;
@@ -25,28 +25,20 @@ public class Box {
     //defines the box placed in the freeSpaceBox space
     private Box placedBox = null;
 
-    public Box(String id, double width, double depth, double height) {
+
+    public Box(String id, double originX, double originZ, double width, double depth, double height) {
 
         this.id=id;
+        this.originX=originX;
+        this.originZ=originZ;
         this.depth=depth;
         this.width=width;
         this.height=height;
 
     }
 
-    // Constructor defining the box placement in plane, no need to define height
-    public Box(double originX, double originZ, double width, double depth) {
 
-        this.originX=originX;
-        this.originZ=originZ;
-        this.depth=depth;
-        this.width=width;
 
-        if(originX == 0 && originZ == 0){
-            this.setAsRoot();
-
-        }
-    }
 
     @Override
     public String toString() {
@@ -60,36 +52,100 @@ public class Box {
 
 
     //accessors and setters
-    public boolean isRoot() { return isRoot; }
+    public boolean isRoot() {
 
-    public void setAsRoot() { isRoot = true; }
+        return isRoot;
 
-    public String getId() { return id; }
+    }
 
-    public double getOriginX() { return originX; }
+    public void setAsRoot() {
 
-    public double getOriginZ() { return originZ; }
+        isRoot = true;
 
-    public double getDepth() { return depth; }
+    }
 
-    public double getWidth() { return width; }
+    public String getId() {
 
-    public double getHeight() { return height; }
+        return id;
 
-    public boolean isFreeSpaceBox() { return freeSpaceBox; }
+    }
 
-    public void setAsUsedSpaceBox(){ freeSpaceBox=false; }
+    public double getOriginX() {
 
-    public Box getRight() { return right; }
+        return originX;
 
-    public void setRight(Box right) { this.right = right; }
+    }
 
-    public Box getDown() { return down; }
+    public double getOriginZ() {
 
-    public void setDown(Box down) { this.down = down; }
+        return originZ;
 
-    public Box getPlacedBox() { return placedBox; }
+    }
 
-    public void placeBox(Box box) { this.placedBox = box; }
+    public double getDepth() {
+
+        return depth;
+
+    }
+
+    public double getWidth() {
+
+        return width;
+
+    }
+
+    public double getHeight() {
+
+        return height;
+
+    }
+
+    public boolean isFreeSpaceBox() {
+
+        return freeSpaceBox;
+
+    }
+
+    public void setAsUsedSpaceBox(){
+
+        freeSpaceBox=false;
+
+    }
+
+    public Box getRight() {
+
+        return right;
+
+    }
+
+    public void setRight(Box right) {
+
+        this.right = right;
+
+    }
+
+    public Box getDown() {
+
+        return down;
+
+    }
+
+    public void setDown(Box down) {
+
+        this.down = down;
+
+    }
+
+    public Box getPlacedBox() {
+
+        return placedBox;
+
+    }
+
+    public void placeBox(Box box) {
+
+        this.placedBox = box;
+
+    }
 
 }
