@@ -11,10 +11,13 @@ public class RandomBoxGenerator {
         List<Box> boxes= new ArrayList<>(0);
 
         for(int i=0; i<boxNumber; i++){
-            boxes.add(new Box( "box " + i, randomGenerator.nextDouble(maxWidth) ,randomGenerator.nextDouble(maxDepth),
+
+            boxes.add(new Box( "box " + i,0,0, randomGenerator.nextDouble(maxWidth) ,randomGenerator.nextDouble(maxDepth),
                     randomGenerator.nextDouble(maxHeight)) );
+
         }
 
         return boxes;
+
     }
 }
