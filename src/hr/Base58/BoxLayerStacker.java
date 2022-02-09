@@ -46,6 +46,7 @@ public class BoxLayerStacker {
 
             ListIterator<Box> boxIterator = boxes.listIterator();
 
+
             while (boxIterator.hasNext()) {
 
                 Box box = boxIterator.next();
@@ -61,13 +62,15 @@ public class BoxLayerStacker {
                     boxIterator.remove();
                 }
             }
+
             layerIndex++;
+
         }
+
         return layers;
+
     }
 
 
-    public int getNumberOfPlacedBoxes(){
-        return placedBoxes.size();
-    }
+    public int getNumberOfPlacedBoxes() { return placedBoxes.size(); }
 }
