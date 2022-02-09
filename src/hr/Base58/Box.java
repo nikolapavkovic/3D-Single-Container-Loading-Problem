@@ -43,13 +43,14 @@ public class Box {
     @Override
     public String toString() {
         return  id + " details:" +
-                ", width=" + width +
+                "  width=" + width +
                 ", height=" + height +
-                "  depth=" + depth +
-                ", box placed at " + "("+placedBox.originX +", "+ placedBox.originZ + ")"
-                 + " in current layer" + ',' ;
+                "  depth=" + depth;
     }
-
+    public String getPlacementCoordinateDetails(){
+        return " box placed at " + "("+placedBox.originX +", "+ placedBox.originZ + ")"
+                + " in current layer" + ',' ;
+    }
 
     //accessors and setters
     public boolean isRoot() {
