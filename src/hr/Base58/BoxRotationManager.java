@@ -3,22 +3,11 @@ package hr.Base58;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BoxRotationManager {
+public  class  BoxRotationManager {
 
 
-    public List<String> getTypes(List<Box> boxes){
-
-        List<String> boxesOfType = new ArrayList<>();
-
-        for (Box box:boxes) {
-            if(!boxesOfType.contains(box.getId())){
-                boxesOfType.add(box.getId());
-            }
-        }
-        return boxesOfType;
-
-    }
-    public boolean canFit(Box box, double spaceWidth, double spaceDepth, double maxHeight){
+    //if any dimensions of a box cannot fit in (spaceWidth,spaceDepth, maxHeight) defined space return false
+    public static boolean canFit(Box box, double spaceWidth, double spaceDepth, double maxHeight){
 
         return !(box.getWidth()>spaceWidth || box.getWidth()> maxHeight || box.getWidth()>spaceDepth
                 || box.getHeight()>spaceWidth || box.getHeight()> maxHeight || box.getHeight()>spaceDepth
@@ -26,48 +15,64 @@ public class BoxRotationManager {
 
     }
 
-    public double getSubSpaceFitabilityIndex(Box box, double spaceWidth, double spaceDepth){
-        return 1-(box.getWidth()* box.getDepth())/(spaceDepth*spaceDepth);
+    //The subSpaceFitabilityIndex is defined as the percentage of the subspace area a box occupies.
+    //Since we want to define the subSpaceFitabilityIndex as a higher-is-better term, we substract it from 1.
+    public static double getSubSpaceFitabilityIndex(Box box, double spaceWidth, double spaceDepth){
+
+        return 1-(box.getWidth()* box.getDepth()/(spaceWidth*spaceDepth));
+
     }
 
-    public Box getOptimalRotation(Box box, double spaceWidth, double spaceDepth, double maxHeight ){
+    public static Box getOptimalRotation(Box box, double spaceWidth, double spaceDepth, double maxHeight ){
 
         List<Box> boxRotations=getRotations(box);
+
         List<Box> fittableRotations=new ArrayList<>(0);
 
         for (Box boxRotation:boxRotations) {
-                if(canFit(boxRotation,spaceWidth,spaceDepth,maxHeight)){
-                    fittableRotations.add(box);
+                //Add only boxes which can fit in the subspace
+                if(canFit(boxRotation, spaceWidth, spaceDepth, maxHeight)){
+
+                    fittableRotations.add(boxRotation);
+
                 }
+
         }
 
-        Box optimalBoxRotation=null;
+        Box optimalBoxRotation=box;
         double optimalFitabilityIndex=0;
-        double currentFitabilityIndex=0;
+        double currentFitabilityIndex;
 
+        //Finds the best fitting box for a subspace (see getSubSpaceFitability method).
         for (Box fittableRotation: fittableRotations) {
-            if((currentFitabilityIndex=getSubSpaceFitabilityIndex(fittableRotation, spaceWidth, spaceDepth))>optimalFitabilityIndex){
+
+            currentFitabilityIndex=getSubSpaceFitabilityIndex(fittableRotation, spaceWidth, spaceDepth);
+
+            if(currentFitabilityIndex>=optimalFitabilityIndex){
+
                 optimalFitabilityIndex=currentFitabilityIndex;
                 optimalBoxRotation=fittableRotation;
+
             }
         }
 
-
     return optimalBoxRotation;
+
     }
 
-    public List<Box> getRotations(Box box){
+    //Returns all possible basic rotations of a box
+    public static List<Box> getRotations(Box box){
 
             List<Box> boxRotations = new ArrayList<>();
 
+            //Since every box has 6 basic rotations (rotations resulting from 90° shifts at a time ), we add every rotation to the list
+            //by permuting the dimensions
             boxRotations.add(box);
-            boxRotations.add(new Box( box.getId(),box.getWidth(), box.getDepth(), box.getHeight() ));
-            boxRotations.add(new Box(box.getId(), box.getHeight(), box.getWidth(), box.getDepth() ));
-            boxRotations.add(new Box(box.getId(), box.getHeight(),box.getDepth(), box.getWidth() ));
-            boxRotations.add(new Box(box.getId(), box.getDepth(),box.getWidth(), box.getHeight() ));
-            boxRotations.add(new Box(box.getId(), box.getDepth(),box.getHeight(), box.getWidth() ));
-
-
+            boxRotations.add(new Box( box.getId(), box.getOriginX(), box.getOriginZ(),box.getWidth(), box.getDepth(), box.getHeight() ));
+            boxRotations.add(new Box(box.getId(),box.getOriginX(), box.getOriginZ(), box.getHeight(), box.getWidth(), box.getDepth() ));
+            boxRotations.add(new Box(box.getId(), box.getOriginX(), box.getOriginZ(),box.getHeight(),box.getDepth(), box.getWidth() ));
+            boxRotations.add(new Box(box.getId(),box.getOriginX(), box.getOriginZ(), box.getDepth(),box.getWidth(), box.getHeight() ));
+            boxRotations.add(new Box(box.getId(),box.getOriginX(), box.getOriginZ(), box.getDepth(),box.getHeight(), box.getWidth() ));
 
 
         return boxRotations;
