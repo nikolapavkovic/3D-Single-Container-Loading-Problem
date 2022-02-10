@@ -25,9 +25,9 @@ public  class  BoxRotationManager {
 
     public static Box getOptimalRotation(Box box, double spaceWidth, double spaceDepth, double maxHeight ){
 
-        List<Box> boxRotations=getRotations(box);
+        List<Box> boxRotations = getRotations(box);
 
-        List<Box> fittableRotations=new ArrayList<>(0);
+        List<Box> fittableRotations = new ArrayList<>(0);
 
         for (Box boxRotation:boxRotations) {
                 //Add only boxes which can fit in the subspace
@@ -65,7 +65,7 @@ public  class  BoxRotationManager {
 
             List<Box> boxRotations = new ArrayList<>();
 
-            //Since every box has 6 basic rotations (rotations resulting from 90° shifts at a time ), we add every rotation to the list
+            //Since every box has 6 basic rotations (rotations resulting from 90° shifts at a time), we add every rotation to the list
             //by permuting the dimensions
             boxRotations.add(box);
             boxRotations.add(new Box( box.getId(), box.getOriginX(), box.getOriginZ(),box.getWidth(), box.getDepth(), box.getHeight() ));
