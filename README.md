@@ -202,7 +202,7 @@ Since we want to define the subSpaceFitabilityIndex as a higher-is-better term, 
 
 __1 - box.getWidth()* box.getDepth()/(spaceWidth*spaceDepth)__
 
-**The getOptimalRotation** method is an optimization method which will return one of six rotations of a box that fits best in a given subspace.
+**The getOptimalRotation()** method is an optimization method which will return one of six rotations of a box that fits best in a given subspace.
 This is done by finding the box rotation which fits in the subspace and also occupies the smallest area of the subspace.
 By doing this we leave more space in the 2D layer plane unoccupied.
 
@@ -295,7 +295,7 @@ public  class  BoxRotationManager {
 The BoxLayerFitter class essentialy defines methods for a single-bin 2D bin packing problem solution with a height boundary.
 Essentially this class interprets a Box object as either a free space (a container or subcontainer) or a concrete box (a placed box which occupies space).
 Since the algorithm is based on a binary tree, the class first places the container (essentially a big box in which other boxes will be fitted) as the box-tree root.
-The container is as root by passing the container width depth and height as to the class constructor. The height of the container is set as the maximum layer height at
+The container is set as root by passing the container width, depth and height as to the class constructor. The height of the container is set as the maximum layer height at
 but this value will change in the next iteration of the algorithm.
 
 ###### The BoxLayerFitter class defines three main method for fitting boxes in a 2D layer with a height boundary.
