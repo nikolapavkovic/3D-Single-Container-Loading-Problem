@@ -202,7 +202,7 @@ Since we want to define the subSpaceFitabilityIndex as a higher-is-better term, 
 
 __1 - box.getWidth()* box.getDepth()/(spaceWidth*spaceDepth)__
 
-**The getOptimalRotation** method is an optimization method which will one of six rotations of a box that fits best in a given subspace.
+**The getOptimalRotation** method is an optimization method which will return one of six rotations of a box that fits best in a given subspace.
 This is done by finding the box rotation which fits in the subspace and also occupies the smallest area of the subspace.
 By doing this we leave more space in the 2D layer plane unoccupied.
 
