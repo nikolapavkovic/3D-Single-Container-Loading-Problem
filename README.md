@@ -11,7 +11,7 @@ each other to form a 3D container.
 ## Current state of the algorithm
 The algorithm works nicely but the rotational optimization is not yet fully implemented due to a currently unsolved bug.
 To try and fit all box types it is enough to take the list of boxes to be fitted and sort them in a way that all box types are at the beggining of the list
-and the other boxes are sorted width-wise
+and the other boxes are sorted width-wise. There is also some code un-spaghettification to be done in the future for better code readability.
 
 # Workings of classes and interfaces 
 Further down, all the inner workings of all classes and interfaces used in the solution are explained.
