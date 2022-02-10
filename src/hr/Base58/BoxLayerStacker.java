@@ -72,5 +72,7 @@ public class BoxLayerStacker {
     }
 
 
-    public int getNumberOfPlacedBoxes() { return placedBoxes.size(); }
+    public int getNumberOfPlacedBoxes() {
+        return placedBoxes.size();
+    }
 }
