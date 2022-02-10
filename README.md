@@ -23,7 +23,7 @@ Other data regarding the BST-based algorithm like the information is a certain b
 and the information is the box a free space or a concrete box (isFreeSpaceBox).
 
 The Box class also overrides the toString() method for easier output and defines the getPlacementCoordinateDetails() method
-to get the 2D layer placement coordinates in a string form 
+to get the 2D layer placement coordinates in a string form.
 
 The Box class also lists different accessor methods for the above-mentioned fields.
 
