@@ -17,26 +17,25 @@ public class BoxLayerFitter implements IBoxFitter {
 
         public void fit(List<Box> boxes) {
 
-            Box box;
             Box freeSpaceBox;
+            Box boxToPlace;
             Box optimalBox;
 
-            for (Box value : boxes) {
+            for (Box aBox : boxes) {
 
-                freeSpaceBox = value;
+                boxToPlace = aBox;
 
-                optimalBox=BoxRotationManager.getOptimalRotation(this.root,freeSpaceBox.getWidth(), freeSpaceBox.getDepth(), maxHeight);
-                optimalBox.setAsRoot();
+                //optimalBox = BoxRotationManager.getOptimalRotation(this.root, boxToPlace.getWidth(), boxToPlace.getDepth(), maxHeight);
                 
-                box= this.findSpace(optimalBox, freeSpaceBox.getWidth(), freeSpaceBox.getDepth());
+                freeSpaceBox = this.findSpace(this.root, boxToPlace.getWidth(), boxToPlace.getDepth());
 
-                if (box != null) {
+                if (freeSpaceBox != null) {
 
-                    freeSpaceBox.placeBox(this.placeAndSplitSearch(box, freeSpaceBox.getWidth(), freeSpaceBox.getDepth()));
+                    boxToPlace.placeBox(this.placeAndSplitSearch(freeSpaceBox, boxToPlace.getWidth(), boxToPlace.getDepth()));
 
-                    if (box.isRoot()){
+                    if (freeSpaceBox.isRoot()){
 
-                        freeSpaceBox.getPlacedBox().setAsRoot();
+                        boxToPlace.getPlacedBox().setAsRoot();
 
                     }
 
@@ -64,7 +63,7 @@ public class BoxLayerFitter implements IBoxFitter {
                 }
 
             }
-            else if ((depth <= root.getDepth()) && (width <= root.getWidth()) && root.getHeight()<maxHeight){
+            else if ((depth <= root.getDepth()) && (width <= root.getWidth()) && root.getHeight() < maxHeight){
 
                 return root;
 
@@ -76,7 +75,6 @@ public class BoxLayerFitter implements IBoxFitter {
                 return null;
 
             }
-
 
         }
 
