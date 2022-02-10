@@ -195,7 +195,7 @@ This class handles the rotation by defining four methods: canFit(), getRotations
 **The getRotations()** method returns a list of the 6 basic rotations of a given box (box objects with permuted dimensions).
 Basic rotations are defined as rotations resulting from 90° shifts at a time. We will use this list to find an optimal rotation for a certain subspace.
 
-**The getSubSpaceFitabilityIndex()** method is a simple method which returns the percentage the 2D layer subspace a box occupies.
+**The getSubSpaceFitabilityIndex()** method is a simple method which returns the percentage of the 2D layer subspace a box occupies.
 This percentage is calculated as box.getWidth()* box.getDepth()/(spaceWidth*spaceDepth).
 
 Since we want to define the subSpaceFitabilityIndex as a higher-is-better term, we substract it from 1, so we get the next expression:
