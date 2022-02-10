@@ -8,6 +8,10 @@ each other to form a 3D container.
 
 **Essentially, the algorithm aproximatively solves a 2D single bin packing problem (but height bounded) multiple times and stacks the solutions on top of each other.**
 
+## Current state of the algorithm
+The algorithm works nicely but the rotational optimization is not yet fully implemented due to a currently unsolved bug.
+To try and fit all box types it is enough to take the list of boxes to be fitted and sort them in a way that all box types are at the beggining of the list
+and the other boxes are sorted width-wise
 
 # Workings of classes and interfaces 
 Further down, all the inner workings of all classes and interfaces used in the solution are explained.
@@ -813,7 +817,7 @@ public class WidthComparator implements Comparator<Box> {
     @Override
     public int compare(Box lhs, Box rhs) {
 
-        return (Double.compare(lhs.getDepth(), rhs.getDepth()));
+        return (Double.compare(lhs.getWidth(), rhs.getWidth()));
 
     }
 }
