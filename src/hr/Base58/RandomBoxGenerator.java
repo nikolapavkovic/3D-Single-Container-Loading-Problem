@@ -24,6 +24,7 @@ public class RandomBoxGenerator implements IBoxGenerator {
 
     }
 
+
     public void inputUserBoxData(){
 
         Scanner dataScanner = new Scanner(System.in);
@@ -55,9 +56,26 @@ public class RandomBoxGenerator implements IBoxGenerator {
 
     }
 
+    @Override
     public List<Box> getBoxes() {
 
         inputUserBoxData();
+
+        List<Box> boxes= new ArrayList<>(0);
+
+        for(int i=0; i<numberOfBoxes; i++){
+
+            boxes.add(new Box( "Box Type " + i,0,0, randomGenerator.nextDouble(minWidth, maxWidth),
+                    randomGenerator.nextDouble(minDepth, maxDepth), randomGenerator.nextDouble(minHeight, maxHeight)) );
+
+        }
+
+        return boxes;
+
+    }
+
+    public static List<Box> getBoxesNonUserInput(IRandomGenerator randomGenerator, double maxWidth, double maxDepth, double maxHeight,
+                                          double minWidth, double minDepth, double minHeight, int numberOfBoxes) {
 
         List<Box> boxes= new ArrayList<>(0);
 
