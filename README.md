@@ -295,8 +295,7 @@ public  class  BoxRotationManager {
 The BoxLayerFitter class essentialy defines methods for a single-bin 2D bin packing problem solution with a height boundary.
 Essentially this class interprets a Box object as either a free space (a container or subcontainer) or a concrete box (a placed box which occupies space).
 Since the algorithm is based on a binary tree, the class first places the container (essentially a big box in which other boxes will be fitted) as the box-tree root.
-The container is set as root by passing the container width, depth and height as to the class constructor. The height of the container is set as the maximum layer height at
-but this value will change in the next iteration of the algorithm.
+The container is set as root by passing the container width, depth and height as parameters to the class constructor. The maxHeight will be set as the height of the first box placed in the layer in the future.
 
 ###### The BoxLayerFitter class defines three main method for fitting boxes in a 2D layer with a height boundary.
 
@@ -546,7 +545,7 @@ public interface IBoxGenerator {
 ## The RandomBoxGenerator class
 The RandomBoxGenerator class defines the random generation of a certain number of boxes bounded by lower and upper dimension boundaries.
 Using a dependency injected random generator, the getBoxes method gets the user input for lower and upper dimension boundaries and the number of boxes to be generated and,
-using the injected generator returns a list of boxes.
+using the injected generator, returns a list of boxes.
 
 ```
 package hr.Base58;
@@ -684,7 +683,7 @@ public class RandomDoubleGenerator implements IRandomGenerator {
 ```
 
 ## The SameSizedBoxGenerator class
-The SameSizedBoxGenerator class is used to get a certain number of same-sized boxes using the getBoxes() method,
+The SameSizedBoxGenerator class is used to get a certain number of same-sized boxes using the getBoxes() method
 with their dimensions defined by the user via the inputUserBoxData() method.
 
 ```
@@ -828,7 +827,7 @@ public class WidthComparator implements Comparator<Box> {
 This is the main class used for testing the algorithm.
 In the main method, the user is prompted to enter the container dimensions and the id of one of the above-mentioned box generators.
 Depending on the user's choices, the program will test the algorithm with the chosen generation method and print out the box and box placement details.
-The printed user prompts and results are color coded using ANSI escape codes. This class also defines some static methods for testing basic cases with noneed for user input.
+The printed user prompts and results are color coded using ANSI escape codes. This class also defines some static methods for testing basic cases with no need for user input.
 ```
 package hr.Base58;
 
@@ -1050,8 +1049,8 @@ public class TestSCLP {
 ```
 ## The Container class
 This class is just a utility class which holds the dimensions of the container in which the boxes have to fit.
-It is used only to make the code more understandable. Since the algorithm interprets containers and boxes as boxes, there is no need for this class to exist apart from
-good looks
+It is only used to make the code more understandable. Since the algorithm interprets both the containers and boxes as boxes, there is no need for this class to exist apart from
+good looks.
 
 ```
 package hr.Base58;
