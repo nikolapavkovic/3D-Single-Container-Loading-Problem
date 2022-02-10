@@ -10,9 +10,116 @@ public class TestSCLP {
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_BLUE = "\u001B[34m";
 
+    public static void runBasicDifferentSizedBoxTest(){
+        Container container = new Container(1000,1000,300);
+
+        List<Box> boxes = new ArrayList<>(0);
+        for (int i = 0; i < 10; i++) {
+            boxes.add(new Box("Box type 0", 0,0,300, 400, 111));
+        }
+
+        for (int i = 0; i < 12; i++) {
+            boxes.add(new Box("Box type 0", 0,0,100, 100, 200));
+        }
+        for (int i = 0; i < 10; i++) {
+            boxes.add(new Box("Box type 0", 0,0,100, 100, 100));
+        }
+
+
+        BoxLayerStacker boxLayerStacker= new BoxLayerStacker(boxes);
+
+        List<List<Box>> layers =boxLayerStacker.stackLayers(container);
+
+        int layerIndex = 0;
+
+        for (List<Box> layer: layers) {
+
+            System.out.println(ANSI_GREEN + "-----------------------------layer "+ ++layerIndex + "-----------------------------\n" + ANSI_RESET);
+
+            for (Box box: layer) {
+
+                System.out.println(box.toString()+ box.getPlacementCoordinateDetails() + "\n");
+
+            }
+
+        }
+
+        System.out.println(ANSI_GREEN + "Box fitting complete, the total amount of placed boxes is: " + boxLayerStacker.getNumberOfPlacedBoxes() + ANSI_RESET);
+
+        System.out.println();
+    }
+
+    public static void runBasicSameSizedBoxTest(){
+
+        Container container = new Container(600,600,100);
+        List<Box> boxes = new ArrayList<>(0);
+        for (int i = 0; i < 37; i++) {
+            boxes.add(new Box("Box type 0", 0,0,100, 100, 100));
+        }
+        // the algorithm should fit 36 boxes
+
+
+        BoxLayerStacker boxLayerStacker= new BoxLayerStacker(boxes);
+
+        List<List<Box>> layers =boxLayerStacker.stackLayers(container);
+
+        int layerIndex = 0;
+
+        for (List<Box> layer: layers) {
+
+            System.out.println(ANSI_GREEN + "-----------------------------layer "+ ++layerIndex + "-----------------------------\n" + ANSI_RESET);
+
+            for (Box box: layer) {
+
+                System.out.println(box.toString()+ box.getPlacementCoordinateDetails() + "\n");
+
+            }
+
+        }
+
+        System.out.println(ANSI_GREEN + "Box fitting complete, the total amount of placed boxes is: " + boxLayerStacker.getNumberOfPlacedBoxes() + ANSI_RESET);
+
+        System.out.println();
+    }
+
+    public static void runBasicRandomGeneratedBoxesTest(){
+
+        Container container = new Container(500,500,700);
+
+        List<Box> boxes = RandomBoxGenerator.getBoxesNonUserInput(RandomDoubleGenerator.getInstance(),300, 300, 300,
+                250,250,250,47);
+
+        BoxLayerStacker boxLayerStacker= new BoxLayerStacker(boxes);
+
+        List<List<Box>> layers =boxLayerStacker.stackLayers(container);
+
+        int layerIndex = 0;
+
+        for (List<Box> layer: layers) {
+
+            System.out.println(ANSI_GREEN + "-----------------------------layer "+ ++layerIndex + "-----------------------------\n" + ANSI_RESET);
+
+            for (Box box: layer) {
+
+                System.out.println(box.toString()+ box.getPlacementCoordinateDetails() + "\n");
+
+            }
+
+        }
+
+        System.out.println(ANSI_GREEN + "Box fitting complete, the total amount of placed boxes is: " + boxLayerStacker.getNumberOfPlacedBoxes() + ANSI_RESET);
+
+        System.out.println();
+
+
+
+    }
 
     public static void main(String[] args) {
-
+        //Uncomment these lines to test the algorithm on some basic cases
+        //runBasicSameSizedBoxTest();
+        //runBasicDifferentSizedBoxTest();
+        //runBasicRandomGeneratedBoxesTest();
 
         Scanner dataScanner = new Scanner(System.in);
 
