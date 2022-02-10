@@ -825,7 +825,7 @@ This is the main class used for testing the algorithm.
 In the main method, the user is prompted to enter the container dimensions and the id of one of the above-mentioned box generators.
 Depending on the user's choices, the program will test the algorithm with the chosen generation method and print out the box and box placement details.
 The printed user prompts and results are color coded using ANSI escape codes. This class also defines some static methods for testing basic cases with noneed for user input.
-
+```
 package hr.Base58;
 
 import java.util.*;
@@ -1043,7 +1043,7 @@ public class TestSCLP {
     }
 
 }
-
+```
 
 
 
