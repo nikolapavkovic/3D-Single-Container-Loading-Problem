@@ -45,7 +45,7 @@ public class UserInputBoxGenerator implements IBoxGenerator{
 
             for(int j = 0; j< sameBoxTypes; j++){
 
-                boxes.add(new Box("Box type "+ i,0,0 ,boxWidth, boxDepth, boxHeight ));
+                boxes.add(new Box("Box type " + i,0,0 ,boxWidth, boxDepth, boxHeight ));
 
             }
 

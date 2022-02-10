@@ -40,7 +40,7 @@ public class SameSizedBoxGenerator implements IBoxGenerator{
 
         for (int i = 0; i < numberOfBoxes; i++) {
 
-            boxes.add(new Box("Box " + i, 0, 0, width, depth, height));
+            boxes.add(new Box("Box type 0" , 0, 0, width, depth, height));
 
         }
 

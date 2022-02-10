@@ -63,7 +63,7 @@ public class RandomBoxGenerator implements IBoxGenerator {
 
         for(int i=0; i<numberOfBoxes; i++){
 
-            boxes.add(new Box( "box " + i,0,0, randomGenerator.nextDouble(minWidth, maxWidth),
+            boxes.add(new Box( "Box Type " + i,0,0, randomGenerator.nextDouble(minWidth, maxWidth),
                     randomGenerator.nextDouble(minDepth, maxDepth), randomGenerator.nextDouble(minHeight, maxHeight)) );
 
         }
