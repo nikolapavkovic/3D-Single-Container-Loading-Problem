@@ -1044,9 +1044,44 @@ public class TestSCLP {
 
 }
 ```
+## The Container class
+This class is just a utility class which holds the dimensions of the container in which the boxes have to fit.
+It is used only to make the code more understandable. Since the algorithm interprets containers and boxes as boxes, there is no need for this class to exist apart from
+good looks
+
+```
+package hr.Base58;
+
+public class Container {
+
+    private final double width;
+    private final double height;
+    private final double depth;
+
+    public Container(double width, double depth,  double height) {
+
+        this.width = width;
+        this.height = height;
+        this.depth = depth;
+
+    }
 
 
+    public double getWidth() {
+        return width;
+    }
 
+    public double getHeight() {
+        return height;
+    }
+
+    public double getDepth() {
+        return depth;
+    }
+
+}
+
+```
 
 
 
