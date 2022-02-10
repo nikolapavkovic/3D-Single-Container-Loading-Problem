@@ -27,6 +27,11 @@ public class TestSCLP {
         System.out.println( ANSI_CYAN +"Please enter the container height: " + ANSI_RESET);
         double containerHeight = dataScanner.nextDouble();
 
+        if(containerDepth<=0 || containerHeight<=0 || containerWidth<=0){
+            System.out.println("Non-positive container dimensions values inputted. Closing Program.");
+            return;
+        }
+
         Container container = new Container(containerWidth, containerDepth, containerHeight);
 
 
@@ -68,6 +73,13 @@ public class TestSCLP {
         }
 
         List<Box> boxes= boxGenerator.getBoxes();
+
+        for (Box box: boxes) {
+            if(box.getWidth()<=0 || box.getHeight()<=0 || box.getDepth()<=0){
+                System.out.println("Non-positive box dimensions values inputted. Closing Program.");
+                return;
+            }
+        }
 
 
 
