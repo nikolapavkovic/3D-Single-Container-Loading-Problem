@@ -19,8 +19,8 @@ Further down, all the inner workings of all classes and interfaces used in the s
 The box class represents the basis of this solution.
 The class stores essential box data such as:
 box width, box depth, box height, it's origin coordinates in a 2D layer plane and the box id.
-Other data regarding the BST-based algorithm like the information is a certain box the root node of the tree (isRoot field), its left and right nodes(right and down field),
-and the information is the box a free space or a concrete box (isFreeSpaceBox).
+Other data regarding the BST-based algorithm like the information is a certain box the root node of the tree (isRoot field), its left and right nodes (right and down field),
+and the information is the box a free space or a concrete box (isFreeSpaceBox field).
 
 The Box class also overrides the toString() method for easier output and defines the getPlacementCoordinateDetails() method
 to get the 2D layer placement coordinates in a string form.
