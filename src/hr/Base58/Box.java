@@ -38,8 +38,6 @@ public class Box {
     }
 
 
-
-
     @Override
     public String toString() {
         return  id + " details:" +
@@ -47,6 +45,8 @@ public class Box {
                 ", height=" + height +
                 "  depth=" + depth;
     }
+
+
     public String getPlacementCoordinateDetails(){
         return " box placed at " + "("+placedBox.originX +", "+ placedBox.originZ + ")"
                 + " in current layer" + ',' ;
