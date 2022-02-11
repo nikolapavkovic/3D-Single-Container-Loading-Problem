@@ -292,8 +292,8 @@ public  class  BoxRotationManager {
 
 
 ## The BoxLayerFitter class
-The BoxLayerFitter class essentialy defines methods for a single-bin 2D bin packing problem solution with a height boundary.
-Essentially this class interprets a Box object as either a free space (a container or subcontainer) or a concrete box (a placed box which occupies space).
+The BoxLayerFitter class defines methods for a single-bin 2D bin packing problem solution with a height boundary.
+Essentially this class interprets a Box object as either a free space (a container or subcontainer) or a concrete box (a placed box that occupies space).
 Since the algorithm is based on a binary tree, the class first places the container (essentially a big box in which other boxes will be fitted) as the box-tree root.
 The container is set as root by passing the container width, depth and height as parameters to the class constructor. The maxHeight will be set as the height of the first box placed in the layer in the future.
 
