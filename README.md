@@ -512,7 +512,7 @@ public class BoxLayerStacker {
 This is a simple interface that the BoxLayerFitter class implements.
 It only contains one method - void fit(List<Box> boxes) and is used to simplify changing the box fitting class in the future.
 
-```
+```java
 package hr.Base58;
 
 import java.util.List;
