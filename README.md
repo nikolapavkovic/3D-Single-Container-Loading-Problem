@@ -206,7 +206,7 @@ __1 - box.getWidth()* box.getDepth()/(spaceWidth*spaceDepth)__
 This is done by finding the box rotation which fits in the subspace and also occupies the smallest area of the subspace.
 By doing this we leave more space in the 2D layer plane unoccupied.
 
-```
+```java
 package hr.Base58;
 
 import java.util.ArrayList;
@@ -301,7 +301,7 @@ The container is set as root by passing the container width, depth and height as
 
 **The fit()** method is the exact method which fits the boxes, so let's take a closer look.
 
-```
+```java
 package hr.Base58;
 import java.util.List;
 
@@ -426,7 +426,7 @@ element represents a box in that layer.
 
 The **getNumberOfPlacedBoxes()** method returns the size of placed boxes (essentially the size of the list).
 
-```
+```java
 package hr.Base58;
 
 import java.util.ArrayList;
@@ -547,7 +547,7 @@ The RandomBoxGenerator class defines the random generation of a certain number o
 Using a dependency injected random generator, the getBoxes method gets the user input for lower and upper dimension boundaries and the number of boxes to be generated and,
 using the injected generator, returns a list of boxes.
 
-```
+```java
 package hr.Base58;
 
 import java.util.ArrayList;
@@ -647,7 +647,7 @@ public class RandomBoxGenerator implements IBoxGenerator {
 This class implements the IRandomGenerator interface and defines a method for generating a random double number with lower and upper boundaries. It uses the 
 Singleton design pattern to prevent creating more than one object of the class with the same seed for random generation.
 
-```
+```java
 package hr.Base58;
 
 import java.util.Random;
@@ -686,7 +686,7 @@ public class RandomDoubleGenerator implements IRandomGenerator {
 The SameSizedBoxGenerator class is used to get a certain number of same-sized boxes using the getBoxes() method
 with their dimensions defined by the user via the inputUserBoxData() method.
 
-```
+```java
 package hr.Base58;
 
 import java.util.ArrayList;
@@ -744,7 +744,7 @@ public class SameSizedBoxGenerator implements IBoxGenerator{
 ## The UserInputBoxGenerator class
 This class is a simple class which defines the methods to enable a user to input all the box sizes of the boxes to be generated.
 
-```
+```java
 package hr.Base58;
 
 import java.util.ArrayList;
@@ -806,7 +806,7 @@ public class UserInputBoxGenerator implements IBoxGenerator{
 ## The WidthComparator class 
 This class is used to override the compare() method of the built-in Comparer class. This new compare method returns true if the lhs depth is larger than the rhs depth.
 
-```
+```java
 package hr.Base58;
 
 import java.util.Comparator;
@@ -828,7 +828,7 @@ This is the main class used for testing the algorithm.
 In the main method, the user is prompted to enter the container dimensions and the id of one of the above-mentioned box generators.
 Depending on the user's choices, the program will test the algorithm with the chosen generation method and print out the box and box placement details.
 The printed user prompts and results are color coded using ANSI escape codes. This class also defines some static methods for testing basic cases with no need for user input.
-```
+```java
 package hr.Base58;
 
 import java.util.*;
@@ -1052,7 +1052,7 @@ This class is just a utility class which holds the dimensions of the container i
 It is only used to make the code more understandable. Since the algorithm interprets both the containers and boxes as boxes, there is no need for this class to exist apart from
 good looks.
 
-```
+```java
 package hr.Base58;
 
 public class Container {
