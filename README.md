@@ -27,7 +27,7 @@ to get the 2D layer placement coordinates in a string form.
 
 The Box class also lists different accessor methods for the above-mentioned fields.
 
-```
+```java
 package hr.Base58;
 
 public class Box {
