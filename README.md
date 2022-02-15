@@ -529,7 +529,7 @@ This is also a simple interface which declares only one method - List<Box> getBo
 This interface is implemented by the RandomBoxGenerator, SameSizedBoxGenerator and UserInputBoxGenerator classes 
 in order to allow for dynamic swapping of box generation methods.
 
-```
+```java
 package hr.Base58;
 
 import java.util.List;
